@@ -1,5 +1,6 @@
 import re
 
+# Defining a function to add a new contact to 'contacts' dictionary
 def add_new_contact(contacts):
     number_input = input("Enter the contact's phone number (XXX-XXX-XXXX): ").strip()
     if re.search(r'\b\d{3}-\d{3}-\d{4}\b', number_input):
@@ -30,6 +31,7 @@ def add_new_contact(contacts):
     else:
         print("Invalid phone number. Please use 'XXX-XXX-XXXX' format.")
 
+# Defining a function to edit an existing contact's information in 'contacts' dictionary
 def edit_existing_contact(contacts):
     old_number_input = input("Enter the contact's original phone number (XXX-XXX-XXXX): ").strip()
     if re.search(r'\b\d{3}-\d{3}-\d{4}\b', old_number_input):
@@ -65,6 +67,7 @@ def edit_existing_contact(contacts):
     else:
         print("Invalid phone number. Please use 'XXX-XXX-XXXX' format.")
 
+# Defining a function to delete an existing contact in 'contacts' dictionary
 def delete_contact(contacts):
     number_input = input("Enter the contact's phone number (XXX-XXX-XXXX): ").strip()
     if re.search(r'\b\d{3}-\d{3}-\d{4}\b', number_input) and number_input in contacts:
@@ -73,6 +76,7 @@ def delete_contact(contacts):
     else:
         print("Invalid phone number. Please use 'XXX-XXX-XXXX' format.")
 
+# Defining a function to search for an existing contact in 'contacts' dictionary and display their information
 def search_for_contact(contacts):
     number_input = input("Enter the contact's phone number (XXX-XXX-XXXX): ").strip()
     if re.search(r'\b\d{3}-\d{3}-\d{4}\b', number_input):
@@ -83,6 +87,7 @@ def search_for_contact(contacts):
     else:
         print("Invalid phone number. Please use 'XXX-XXX-XXXX' format.")
 
+# Defining a function to display a list of all contacts and their information in 'contacts' dictionary
 def display_contacts(contacts):
     if contacts:
         print("Contacts:")
@@ -91,6 +96,7 @@ def display_contacts(contacts):
     else:
         print("Contacts are empty. Please add a contact before displaying them.")
 
+# Defining a function to export contacts from 'contacts' dictionary to 'contacts_file.txt'
 def export_contacts(filename, contacts):
     try:
         with open(filename, 'w') as file:
@@ -103,6 +109,7 @@ def export_contacts(filename, contacts):
     except PermissionError:
         print("PermissionError: Unable to access file.")
 
+# Defining a function to import contacts from 'contacts_file.txt' to 'contacts' dictionary
 def import_contacts(filename, contacts):
     try:
         with open(filename, 'r') as file:
@@ -123,6 +130,7 @@ contacts = {
     '123-123-1234': {'name': 'John Doe', 'phone_number': '123-123-1234', 'email_address': 'email@address.com', 'home_address': 'None', 'note': 'None'}
 }
 
+# Creating a user-friendly command-line interface for the Contact Management System with a welcoming message and a menu
 print("Welcome to the Contact Management System!")
 while True:
     print("\nMenu:\n1. Add a new contact\n2. Edit an existing contact\n3. Delete a contact\n4. Search for a contact\n5. Display all contacts\n6. Export contacts to a text file\n7. Import contacts from a text file\n8. Quit")
